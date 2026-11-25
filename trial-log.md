@@ -79,4 +79,26 @@ the meeting's own official record-keeper delivers the verdict.
 
 ## Bundle / check
 
-- (filled after bundle v1 + check)
+- Bundle v1 attempt (25 Nov ~18:02 WITA): FAILED as expected for a hand-off session —
+  "the run record is not whole ... opens with no message of the person's in words".
+  No bundle file written. Coordinator re-bundles with prompt-file + usage rows.
+- Check run against the loose session transcript (25 Nov ~18:03 WITA, commit
+  `7d65787b092f16a659fb0b33344ef426bb013106`): 11 passed, 3 failed, 5 skipped,
+  5 checked at submission.
+  - PASS: snapshot (5 files, 7,622 bytes), license_osi (MIT), entrypoint (main.ts, node22),
+    transcripts_present, transcripts_recorded, thinking_wellformed (70 messages),
+    thinking_in_window, thinking_reproduces (79/82 lines, 96.3%), thinking_turns (28),
+    thinking_own_work (79/82 own lines).
+  - FAIL: thinking_priced (0 usage rows — subagent rows flush at run end; coordinator
+    attaches via --muse-usage), thinking_revised (no file revised in 2+ messages —
+    fixed by this genuine trial-log revision, re-commit below), transcripts_run_record
+    (no bundle manifest — fixed by coordinator re-bundle).
+  - SKIP: strategy_note, committed_secret, thinking_committed, thinking_on_task,
+    thinking_fresh.
+  - At submission (not checked locally): repo_public, repo_owner, repo_created_after_open,
+    commit_in_repo, duplicate_snapshot.
+- Local trial: `node main.ts` exit 0, `/output/entry.txt` = 96 characters, matches entry.
+- README live-badge check: `make.fun/badge/` count = 3 (badge, rank, reward; rank/reward
+  segments use repo name `makefun-meeting-email`).
+- Repo: https://github.com/rwnliwan/makefun-meeting-email — HEAD pushed, remote HEAD =
+  local HEAD; About verified via gh api (homepage + topics makefun/ai-agents/bounties).
